@@ -1,6 +1,6 @@
 # Welcome to the URL Shortner 🪄
 
-![Repository Banner](images/gitbg.png)
+![Repository Banner](assets/gitbg.png)
 
 ## Overview 💡
 
@@ -26,8 +26,8 @@ make air
 In this challenge you must create a server that shortens urls and redirects.
 
 -- Create an http server that contains two endpoints:
-- POST / - takes a url and returns a unique code
-- GET /:code - use the code to redirect to the original url
+- **POST** / - takes a url and returns a unique code
+- **GET** /:code - use the code to redirect to the original url
 
 -- The code is a unique code, the same url sent multiple times generates different codes
 -- The code is up to 6 characters long
