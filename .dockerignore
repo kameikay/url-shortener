@@ -1,0 +1,8 @@
+.docker
+test-database
+.gitignore
+.air.toml
+Makefile
+tmp
+redis_data/
+.vscode

@@ -1,0 +1,45 @@
+version: '3.9'
+
+services:
+  air:
+    container_name: url-shortener
+    image: cosmtrek/air:v1.42.0
+    working_dir: /app
+    environment:
+      GET_ENV_FILE: true
+    depends_on:
+      - db_migrate
+    ports:
+      - 3333:3333
+    volumes:
+      - ./:/app/
+
+  url-shortener:
+    container_name: url-shortener
+    build: .
+    depends_on:
+      - db_migrate
+    environment:
+      GET_ENV_FILE: true  
+    volumes:
+      - ./.env:/.env
+
+  db:
+    image: postgres:15.2
+    container_name: db
+    restart: always
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./.docker:/var/lib/postgresql/data
+
+  db_migrate:
+    image: migrate/migrate
+    volumes:
+      - ./sql/migrations/:/migrations
+    command: ["-path", "/migrations", "-database", "postgres://localhost:5432/database", "up"]
+    depends_on:
+      - db

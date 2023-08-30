@@ -1,6 +1,6 @@
 module github.com/kameikay/url-shortener
 
-go 1.21.0
+go 1.21
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
@@ -10,6 +10,7 @@ require (
 	github.com/golang-migrate/migrate/v4 v4.16.2
 	github.com/golang/mock v1.4.4
 	github.com/google/uuid v1.3.0
+	github.com/lib/pq v1.10.2
 	github.com/ory/dockertest v3.3.5+incompatible
 	github.com/spf13/viper v1.16.0
 	github.com/stretchr/testify v1.8.3
@@ -29,7 +30,6 @@ require (
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/lib/pq v1.10.2 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
