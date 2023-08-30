@@ -6,6 +6,21 @@
 
 This is a code challange by [Devgym](https://app.devgym.com.br/) to create a URL shortner.
 
+## How to play with docker-compose and air 🐳 🎮
+
+To play the app with docker-compose, you can clone this repository and run the following commands:
+
+```bash
+# Clone the repository
+git clone
+
+# Enter the repository folder
+cd url-shortner
+
+# Run the Makefile to run the docker-compose with air
+make air
+```
+
 ## Requirements 
 
 In this challenge you must create a server that shortens urls and redirects.
