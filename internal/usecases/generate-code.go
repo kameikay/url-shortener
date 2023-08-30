@@ -2,6 +2,7 @@ package usecases
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/kameikay/url-shortener/internal/dtos"
 	"github.com/kameikay/url-shortener/internal/entities"
@@ -27,5 +28,5 @@ func (uc *GenerateCodeUseCase) Execute(ctx context.Context, input dtos.CreateCod
 		return "", err
 	}
 
-	return codeEntity.Code, nil
+	return fmt.Sprintf("localhost:3333/%v", codeEntity.Code), nil
 }
