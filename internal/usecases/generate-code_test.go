@@ -7,6 +7,7 @@ import (
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/golang/mock/gomock"
+	"github.com/kameikay/url-shortener/internal/dtos"
 	mock "github.com/kameikay/url-shortener/internal/infra/repository/mocks"
 	"github.com/stretchr/testify/suite"
 )
@@ -65,7 +66,9 @@ func (suite *GenerateCodeUseCaseSuite) TestExecute() {
 		suite.T().Run(tc.name, func(t *testing.T) {
 			tc.expectations(suite.repository)
 
-			_, err := suite.GenerateCodeUseCase.Execute(context.Background(), "google.com")
+			_, err := suite.GenerateCodeUseCase.Execute(context.Background(), dtos.CreateCodeInputDTO{
+				Url: "google.com",
+			})
 
 			suite.Equal(tc.expectedError, err)
 		})

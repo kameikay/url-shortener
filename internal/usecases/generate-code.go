@@ -3,7 +3,8 @@ package usecases
 import (
 	"context"
 
-	"github.com/google/uuid"
+	"github.com/kameikay/url-shortener/internal/dtos"
+	"github.com/kameikay/url-shortener/internal/entities"
 	"github.com/kameikay/url-shortener/internal/infra/repository"
 )
 
@@ -17,14 +18,14 @@ func NewGenerateCodeUseCase(repository repository.RepositoryInterface) *Generate
 	}
 }
 
-func (uc *GenerateCodeUseCase) Execute(ctx context.Context, url string) (string, error) {
-	id := uuid.New()
-	code := id.String()[0:6]
+func (uc *GenerateCodeUseCase) Execute(ctx context.Context, input dtos.CreateCodeInputDTO) (string, error) {
+	codeEntity := entities.NewCode(input.Url)
+	codeEntity.GenerateCode()
 
-	err := uc.repository.Insert(ctx, code, url)
+	err := uc.repository.Insert(ctx, codeEntity.Code, codeEntity.Url)
 	if err != nil {
 		return "", err
 	}
 
-	return code, nil
+	return codeEntity.Code, nil
 }
