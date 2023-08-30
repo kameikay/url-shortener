@@ -18,7 +18,7 @@ git clone
 cd url-shortner
 
 # Run the Makefile to run the docker-compose with air
-make air
+docker-compose up air
 ```
 
 ## Requirements 
